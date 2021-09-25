@@ -20,7 +20,8 @@ public class Logger {
         String today = (new SimpleDateFormat("MMddyyyy")).format(new Date());
         String filename = "log" + today + ".log";
         try {
-            FileWriter fw = new FileWriter(filename);
+            File file = new File(filename);
+            FileWriter fw = new FileWriter(file);
             bw = new BufferedWriter(fw);
         } catch (IOException e) {
             e.printStackTrace();
@@ -43,10 +44,9 @@ public class Logger {
     public void logInFile(Object log) {
         try {
             bw.write(log.toString());
+            bw.close();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            bw.close();
         }
     }
 }
