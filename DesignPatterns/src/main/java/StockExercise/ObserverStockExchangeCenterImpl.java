@@ -9,13 +9,19 @@ public class ObserverStockExchangeCenterImpl extends ObserverStockExchangeCenter
         super();
     }
 
+    @Override
     public void notifyChange(StockType type, double price){
-        //@TODO: Implememnt me
+        this.ownedStock.replace(type, price);
     }
 
-    //@TODO: Override any necessary methods
-
+    @Override
     public void observe(ObservableStock o){
-        //@TODO: Implememnt me
+        o.registerStockExchangeCenter(this);
+    }
+
+    @Override
+    public void buyStock(ObservableStock s){
+        this.ownedStock.put(s.getName(), 0.0);
+        observe(s);
     }
 }

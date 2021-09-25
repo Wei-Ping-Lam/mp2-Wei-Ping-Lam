@@ -9,19 +9,27 @@ import java.util.List;
 
 public class ObservableStockImpl extends ObservableStock {
 
-    //@TODO: Add any necessary fields
+    private List<ObserverStockExchangeCenter> observers = new ArrayList<ObserverStockExchangeCenter>();
 
     public ObservableStockImpl(StockType name){
         super(name);
-        //@TODO: Implememnt me
     }
 
+    @Override
     public void notifyPriceChange(double price){
-        //@TODO: Implememnt me
-    }
-    public void registerStockExchangeCenter(ObserverStockExchangeCenter oc){
-        //@TODO: Implememnt me
+        for (ObserverStockExchangeCenter oc : observers) {
+            oc.notifyChange(getName(), price);
+        }
     }
 
-    //@TODO: Override any necessary methods
+    @Override
+    public void registerStockExchangeCenter(ObserverStockExchangeCenter oc){
+        observers.add(oc);
+    }
+
+    @Override
+    public void setPrice(double price) {
+        super.setPrice(price);
+        notifyPriceChange(price);
+    }
 }
