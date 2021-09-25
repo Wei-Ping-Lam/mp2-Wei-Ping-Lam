@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class Duck extends Animal {
 
-    Duck() {
-        super("Rice");
+    Duck(String backpack) {
+        super(backpack);
         super.setAge(Integer.parseInt((new SimpleDateFormat("dd")).format(new Date())));
     }
 

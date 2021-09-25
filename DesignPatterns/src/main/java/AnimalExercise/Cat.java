@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class Cat extends Animal {
 
-    Cat() {
-        super("Salmon");
+    Cat(String backpack) {
+        super(backpack);
         super.setAge(Integer.parseInt((new SimpleDateFormat("dd")).format(new Date())));
     }
 

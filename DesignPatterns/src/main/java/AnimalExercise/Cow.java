@@ -3,10 +3,10 @@ package AnimalExercise;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Cow extends Animal{
+public class Cow extends Animal {
 
-    Cow() {
-        super("Grass");
+    Cow(String backpack) {
+        super(backpack);
         super.setAge(Integer.parseInt((new SimpleDateFormat("dd")).format(new Date())));
     }
 
