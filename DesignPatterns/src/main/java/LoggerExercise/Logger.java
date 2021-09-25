@@ -45,6 +45,8 @@ public class Logger {
             bw.write(log.toString());
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            bw.close();
         }
     }
 }
