@@ -20,7 +20,7 @@ public class LoggerTest {
         Constructor[] constructors = Logger.class.getConstructors();
         assertEquals(0,constructors.length);
     }
-
+    /*
     @Test
     public void createInstanceTest() throws NoSuchFieldException,IllegalAccessException{
 
@@ -32,7 +32,7 @@ public class LoggerTest {
         assertNotNull(logger);
 
     }
-
+    */
     @Test
     public void writeTest() throws IOException{
         String today = (new SimpleDateFormat("MMddyyyy")).format(new Date());
