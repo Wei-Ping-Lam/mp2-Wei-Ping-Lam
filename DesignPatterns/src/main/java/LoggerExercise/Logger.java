@@ -36,7 +36,7 @@ public class Logger {
         String filename = "log"+today+".log";
         FileWriter fw = new FileWriter(filename);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(log);
+        bw.write(log.toString());
         bw.close();
     }
 }
