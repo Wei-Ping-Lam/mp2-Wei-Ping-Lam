@@ -19,8 +19,12 @@ public class Logger {
     private Logger() {
         String today = (new SimpleDateFormat("MMddyyyy")).format(new Date());
         String filename = "log" + today + ".log";
-        FileWriter fw = new FileWriter(filename);
-        bw = new BufferedWriter(fw);
+        try {
+            FileWriter fw = new FileWriter(filename);
+            bw = new BufferedWriter(fw);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
