@@ -31,12 +31,16 @@ public class Logger {
      * @param log
      *            The Object that will be logged in the file.
      */
-    public void logInFile(String log) {
-        String today = (new SimpleDateFormat("MMddyyyy")).format(new Date());
-        String filename = "log"+today+".log";
-        FileWriter fw = new FileWriter(filename);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(log);
-        bw.close();
+    public void logInFile(Object log) {
+        try {
+            String today = (new SimpleDateFormat("MMddyyyy")).format(new Date());
+            String filename = "log" + today + ".log";
+            FileWriter fw = new FileWriter(filename);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(log.toString());
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
