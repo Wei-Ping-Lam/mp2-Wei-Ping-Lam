@@ -36,10 +36,10 @@ public class Logger {
         String filename = "log" + today + ".log";
         File file = new File(filename);
         try {
-            FileWriter fw = new FileWriter(file);
+            FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.newLine();
             bw.write(log.toString());
+            bw.newLine();
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
