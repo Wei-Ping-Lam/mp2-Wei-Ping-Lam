@@ -9,22 +9,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Logger {
-    private static Logger instance;
-    /**
-     * @TODO Add any necessary fields and variables.
-     */
+
+    private static Logger instance = new Logger();
 
     /**
      * The constructor for SingletonLogger. Set all necessary fields.
      *
      */
-    //@TODO Add constructor here
+    private Logger() { }
 
     /**
      * @return A Logger instance of this class.
      */
     public static Logger getInstance() {
-        return null; //@TODO: Delete this line
+        return instance;
     }
 
 
@@ -34,6 +32,11 @@ public class Logger {
      *            The Object that will be logged in the file.
      */
     public void logInFile(Object log) {
-        //@TODO: implement me
+        String today = (new SimpleDateFormat("MMddyyyy")).format(new Date());
+        String filename = "log"+today+".log";
+        FileWriter fw = new FileWriter(filename);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(log);
+        bw.close();
     }
 }
