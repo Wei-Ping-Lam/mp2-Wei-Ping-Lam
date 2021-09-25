@@ -44,6 +44,7 @@ public class Logger {
     public void logInFile(Object log) {
         try {
             bw.write(log.toString());
+            bw.newLine();
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
