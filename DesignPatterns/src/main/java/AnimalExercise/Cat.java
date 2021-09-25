@@ -7,7 +7,7 @@ public class Cat extends Animal {
 
     Cat(String backpack) {
         super(backpack);
-        super.setAge(Integer.parseInt((new SimpleDateFormat("dd")).format(new Date())));
+        setAge(Integer.parseInt((new SimpleDateFormat("dd")).format(new Date())));
     }
 
     public String speak() {
