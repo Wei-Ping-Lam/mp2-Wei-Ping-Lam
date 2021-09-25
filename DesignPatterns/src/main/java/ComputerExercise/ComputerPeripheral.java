@@ -9,12 +9,10 @@ public abstract class ComputerPeripheral implements Computer{
 
     @Override
     public String run(){
-        //@TODO: Implement me
-        return null;
+        return computer.run();
     }
     @Override
     public String getDescription(){
-        //@TODO: Implement me
-        return null;
+        return computer.getDescription();
     }
 }
