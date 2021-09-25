@@ -38,8 +38,8 @@ public class Logger {
         try {
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(log.toString());
             bw.newLine();
+            bw.write(log.toString());
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
