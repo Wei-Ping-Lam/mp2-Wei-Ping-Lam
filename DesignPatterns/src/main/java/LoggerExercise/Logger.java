@@ -11,12 +11,17 @@ import java.util.Date;
 public class Logger {
 
     private static Logger instance = new Logger();
-
+    private static BufferedWriter bw;
     /**
      * The constructor for SingletonLogger. Set all necessary fields.
      *
      */
-    private Logger() { }
+    private Logger() {
+        String today = (new SimpleDateFormat("MMddyyyy")).format(new Date());
+        String filename = "log" + today + ".log";
+        FileWriter fw = new FileWriter(filename);
+        bw = new BufferedWriter(fw);
+    }
 
     /**
      * @return A Logger instance of this class.
@@ -33,14 +38,9 @@ public class Logger {
      */
     public void logInFile(Object log) {
         try {
-            String today = (new SimpleDateFormat("MMddyyyy")).format(new Date());
-            String filename = "log" + today + ".log";
-            FileWriter fw = new FileWriter(filename);
-            BufferedWriter bw = new BufferedWriter(fw);
+            bw.open();
             bw.write(log.toString());
-            bw.newLine();
             bw.close();
-            fw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
