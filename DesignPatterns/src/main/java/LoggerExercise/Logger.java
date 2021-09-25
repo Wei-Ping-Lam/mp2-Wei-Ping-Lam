@@ -38,7 +38,6 @@ public class Logger {
             FileWriter fw = new FileWriter(filename);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(log.toString());
-            bw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
